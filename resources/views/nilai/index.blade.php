@@ -2,7 +2,7 @@
     <title>{{ isset($webTitle) ? $webTitle . ' - ' : '' }}Data Nilai</title>
     <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-hKsdx6z0jZO5sOD+DL3uBWiEnzYS9OdA/HlTRILgauL0iGU+7L4Pa/kjhjv6k1t8v8OeHhnqy0Vpl8SYqGo5T+A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -89,7 +89,6 @@
         <?php $i++ ?>
     @endforeach
 </tbody>
-
 </table>
             <div class="mt-4">
                 {{ $data->withQueryString()->links() }}
@@ -97,26 +96,41 @@
         </div>
 
          <!-- Modal -->
-         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Test
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><b>Hasil Kuis</b></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p> No. Registrasi: <span id="item-no-reg"></span> </p>
+                        <p> Email: <span id="modal-email"></span> </p>
+                        <p> Nama: <span id="modal-nama"></span> </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="inline-flex items-center transition-colors font-medium select-none disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-eval-2 px-4 py-2 text-base bg-blue-500 text-white hover:bg-blue-600 focus:ring-blue-500 rounded-md" data-bs-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('body').on('click', '#show-modal', function () {
+            var modalURL = $(this).data('url');
+            $.get(modalURL, function (data) {
+        $('#exampleModal').modal('show');
+        $('#modal-no-reg').text(item.no_reg);
+        $('#modal-email').text(item.email);
+        $('#modal-nama').text(item.nama);
+    })
+});
+});
+
+</script>
 
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <script>src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"</script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-pzjw8SS1dA9r/Z85U+gTbCvjEEwsPceEjz1peE2iSK3JRYVzPn1nC9U3DeKBtIId" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </x-app-layout>
