@@ -1,10 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use DB;
 use App\Models\nilai;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Import\AnswerSheet;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 class NilaiController extends Controller
@@ -15,19 +18,19 @@ class NilaiController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->keyword;
-    
+
         // Menangani pengurutan
         $sort = $request->input('sort', 'id');
         $order = $request->input('order', 'asc');
-    
+
         $data = Nilai::orderBy($sort, $order);
-    
+
         if (strlen($keyword)) {
             $data->where('no_reg', 'like', "%$keyword%");
         }
-    
+
         $data = $data->paginate(10);
-    
+
         return view('nilai.index', compact('data', 'sort', 'order', 'keyword'));
     }
 
@@ -50,15 +53,18 @@ class NilaiController extends Controller
             'nama' => 'required',
             'dokumen' => 'required',
         ]);
-    
+
         $file = $request->file('dokumen');
-    
+
         if ($file && $file->isValid()) {
+            // baca data dari excel dan kalkulasi
+            Excel::import(new AnswerSheet, $file);
+
             $originalFileName = $file->getClientOriginalName();
-    
+
             // Menyimpan file ke direktori 'upload'
             $filePath = Storage::disk('upload')->putFile('', $file);
-    
+
             $data = [
                 'no_reg' => $request->no_reg,
                 'email' => $request->email,
@@ -66,23 +72,24 @@ class NilaiController extends Controller
                 'dokumen' => $filePath,
                 'original_filename' => $originalFileName,
             ];
-    
+
             Nilai::create($data);
-    
+
             return redirect()->to('nilai')->with('success', 'Berhasil menambahkan data');
         }
-    
+
         return redirect()->back()->with('error', 'File tidak ditemukan atau tidak valid');
     }
-    
 
-    public function search(Request $request){
-        if($request->has('search')){
-            $nilai = Nilai::where('no_reg','LIKE','%'.$request->search.'%')->get();
-        }else{
+
+    public function search(Request $request)
+    {
+        if ($request->has('search')) {
+            $nilai = Nilai::where('no_reg', 'LIKE', '%' . $request->search . '%')->get();
+        } else {
             $nilai = Nilai::all();
         }
-        return view('nilai.index',['nilai'=> $nilai]);
+        return view('nilai.index', ['nilai' => $nilai]);
     }
 
     public function download($id)
@@ -91,7 +98,7 @@ class NilaiController extends Controller
         $filepath = storage_path("app/upload/{$data->dokumen}");
         return response()->download($filepath, $data->original_filename);
     }
-    
+
 
     /**
      * Display the specified resource.
