@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unique('no_reg');
             $table->string('email');
             $table->string('nama');
+            $table->string('dokumen');
             $table->string('original_filename')->nullable();
         });
     }
