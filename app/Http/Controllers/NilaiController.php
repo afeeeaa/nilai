@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use DB;
-use App\Models\Nilai;
+use App\Models\nilai;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
