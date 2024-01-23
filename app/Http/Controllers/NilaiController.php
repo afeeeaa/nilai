@@ -31,8 +31,6 @@ class NilaiController extends Controller
         return view('nilai.index', compact('data', 'sort', 'order', 'keyword'));
     }
 
-
-
     /**
      * Show the form for creating a new resource.
      */
@@ -98,9 +96,11 @@ class NilaiController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $item = Nilai::findOrFail($id);
+
+        return view('nilai.show', compact('item'));
     }
 
     /**

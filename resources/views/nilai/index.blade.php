@@ -68,7 +68,7 @@
         </a>
     </th>
 
-        <th class="col-md-2 text-center">Lembar Jawab</th>
+<th class="col-md-2 text-center">Lembar Jawab</th>
         <th class="col-md-2 text-center">Hasil Kuis</th>
     </tr>
 </thead>
@@ -147,8 +147,7 @@
                                 <th></th>
                                 </tr>
                             </tbody>
-
-                            <thead>
+<thead>
                                 <tr>
                                 <th class="text-center">JUDGING (J)</th>
                                 <th class="text-center">PERCEIVING (P)</th>
@@ -156,7 +155,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                <th></th>
+                                <th>50</th>
                                 <th></th>
                                 </tr>
                             </tbody>
