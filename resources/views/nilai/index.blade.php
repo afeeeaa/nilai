@@ -107,6 +107,64 @@
                         <p> No. Registrasi: <span id="item-no-reg"></span> </p>
                         <p> Email: <span id="modal-email"></span> </p>
                         <p> Nama: <span id="modal-nama"></span> </p>
+                        <div class="mt-3">
+                            <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                <th class="text-center">INTROVERT (I)</th>
+                                <th class="text-center">EKSTROVERT (E)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <th></th>
+                                <th></th>
+                                </tr>
+                            </tbody>
+
+                            <thead>
+                                <tr>
+                                <th class="text-center">SENSING (S)</th>
+                                <th class="text-center">INTUITION (N)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <th></th>
+                                <th></th>
+                                </tr>
+                            </tbody>
+
+                            <thead>
+                                <tr>
+                                <th class="text-center">THINKING (T)</th>
+                                <th class="text-center">FEELING (F)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <th></th>
+                                <th></th>
+                                </tr>
+                            </tbody>
+
+                            <thead>
+                                <tr>
+                                <th class="text-center">JUDGING (J)</th>
+                                <th class="text-center">PERCEIVING (P)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <th></th>
+                                <th></th>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </div>
+                        <div class="mt-3">
+                        Tipe Kepribadian:
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="inline-flex items-center transition-colors font-medium select-none disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-eval-2 px-4 py-2 text-base bg-blue-500 text-white hover:bg-blue-600 focus:ring-blue-500 rounded-md" data-bs-dismiss="modal">Close</button>
@@ -127,7 +185,6 @@
     })
 });
 });
-
 </script>
 
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
