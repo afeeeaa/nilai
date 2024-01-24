@@ -38,8 +38,6 @@ class AnswerSheet implements ToCollection, WithHeadingRow {
                 'result4' => $result4,
             ];
         }
-
-            dd($results);
     }
     
     public function headingRow(): int{
@@ -51,7 +49,13 @@ class AnswerSheet implements ToCollection, WithHeadingRow {
     $totalScore = 0;
 
     for ($i = $startColumn; $i <= $endColumn; $i++) {
-        $totalScore += $row[$columnName . $i];
+        // Periksa apakah kolom ada sebelum mengaksesnya
+        if (array_key_exists($columnName . $i, $row)) {
+            $totalScore += $row[$columnName . $i];
+        } else {
+            // Jika kolom tidak ada, lewati perhitungan untuk iterasi ini
+            continue;
+        }
     }
 
     // menghitung persentase
@@ -59,5 +63,6 @@ class AnswerSheet implements ToCollection, WithHeadingRow {
 
     return $averagePercentage;
 }
+
 
 }
