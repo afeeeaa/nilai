@@ -105,7 +105,7 @@ class NilaiController extends Controller
                     $mbti["average_score_n"] = $currentCategoryAverageScore;
                     break;
                 case 4: // T
-                    $mbti["average_score_t"] = $currentCategoryAverageScore;
+                    $mbti["average_scores_t"] = $currentCategoryAverageScore;
                     break;
                 case 5: // F
                     $mbti["average_score_f"] = $currentCategoryAverageScore;
@@ -123,7 +123,7 @@ class NilaiController extends Controller
 
         // kalkulasi hasil antar kategori
         $mbti["result_1"] = $mbti["average_score_i"] > $mbti["average_score_e"] ? "I" : "E";
-        $mbti["result_2"] = $mbti["average_score_s"] > $mbti["average_score_n"] ? "S" : "N";
+        $mbti["result_2"] = $mbti["average_score_s"] > $mbti["average_scores_n"] ? "S" : "N";
         $mbti["result_3"] = $mbti["average_score_t"] > $mbti["average_score_f"] ? "T" : "F";
         $mbti["result_4"] = $mbti["average_score_j"] > $mbti["average_score_p"] ? "J" : "P";
 
