@@ -12,24 +12,24 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('nilai', function (Blueprint $table) {
-            $table->integer('no_reg');
-            $table->unique('no_reg');
+            $table->integer('id')->autoIncrement();
+            $table->string('no_reg')->unique();
             $table->string('email');
             $table->string('nama');
             $table->string('dokumen');
             $table->string('original_filename')->nullable();
-            $table->string('resultI');
-            $table->string('resultE');
-            $table->string('resultS');
-            $table->string('resultN');
-            $table->string('resultT');
-            $table->string('resultF');
-            $table->string('resultJ');
-            $table->string('resultP');
-            $table->string('result1');
-            $table->string('result2');
-            $table->string('result3');
-            $table->string('result4');
+            $table->float('average_score_i');
+            $table->float('average_score_e');
+            $table->float('average_score_s');
+            $table->float('average_score_n');
+            $table->float('average_score_t');
+            $table->float('average_score_f');
+            $table->float('average_score_j');
+            $table->float('average_score_p');
+            $table->string('result_1');
+            $table->string('result_2');
+            $table->string('result_3');
+            $table->string('result_4');
         });
     }
 
