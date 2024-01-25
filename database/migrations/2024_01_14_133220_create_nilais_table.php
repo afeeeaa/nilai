@@ -18,6 +18,18 @@ return new class extends Migration
             $table->string('nama');
             $table->string('dokumen');
             $table->string('original_filename')->nullable();
+            $table->string('resultI');
+            $table->string('resultE');
+            $table->string('resultS');
+            $table->string('resultN');
+            $table->string('resultT');
+            $table->string('resultF');
+            $table->string('resultJ');
+            $table->string('resultP');
+            $table->string('result1');
+            $table->string('result2');
+            $table->string('result3');
+            $table->string('result4');
         });
     }
 
