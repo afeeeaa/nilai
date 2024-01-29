@@ -2,7 +2,6 @@
     <title>{{ isset($webTitle) ? $webTitle . ' - ' : '' }}Data Nilai</title>
     <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-hKsdx6z0jZO5sOD+DL3uBWiEnzYS9OdA/HlTRILgauL0iGU+7L4Pa/kjhjv6k1t8v8OeHhnqy0Vpl8SYqGo5T+A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -15,6 +14,14 @@
             </h2>
         </div>
     </x-slot>
+
+    @if(session()->has('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Sukses!</strong> Data berhasil ditambahkan
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
+
 
     <div class="p-6 overflow-hidden bg-white rounded-md shadow-md dark:bg-dark-eval-1">                
         <div class="mt-4">
@@ -112,32 +119,32 @@
                         <div class="mt-4">
                         <ul class="list-group">
                             <li class="list-group-item d-flex justify-content-between align-items-center fw-bold">
-                            INTROVERT (I) <span  class="badge bg-secondary rounded-pill">14%</span> </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center fw-bold"> EKSTROVERT (E) <span  class="badge bg-secondary rounded-pill">14%</span> </li>
+                            INTROVERT (I) <span  class="badge bg-secondary rounded-pill">{{round ($item->average_score_i*100) }} %</span> </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center fw-bold"> EKSTROVERT (E) <span  class="badge bg-secondary rounded-pill">{{round ($item->average_score_e*100) }} %</span> </li>
                         </ul>
                         <div class="mt-4">
                         <ul class="list-group">
                             <li class="list-group-item d-flex justify-content-between align-items-center fw-bold">
-                            SENSING (S) <span  class="badge bg-secondary rounded-pill">14%</span> </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center fw-bold">  INTUITION (N) <span  class="badge bg-secondary rounded-pill">14%</span> </li>
-                        </ul>
-                        </div>
-                        <div class="mt-4">
-                        <ul class="list-group">
-                            <li class="list-group-item d-flex justify-content-between align-items-center fw-bold">
-                            THINKING (T) <span  class="badge bg-secondary rounded-pill">14%</span> </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center fw-bold">  FEELING (F) <span  class="badge bg-secondary rounded-pill">14%</span> </li>
+                            SENSING (S) <span  class="badge bg-secondary rounded-pill">{{round ($item->average_score_s*100) }} %</span> </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center fw-bold">  INTUITION (N) <span  class="badge bg-secondary rounded-pill">{{round ($item->average_score_n*100) }} %</span> </li>
                         </ul>
                         </div>
                         <div class="mt-4">
                         <ul class="list-group">
                             <li class="list-group-item d-flex justify-content-between align-items-center fw-bold">
-                            JUDGING (J) <span  class="badge bg-secondary rounded-pill">14%</span> </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center fw-bold">  PERCEIVING (P) <span  class="badge bg-secondary rounded-pill">14%</span> </li>
+                            THINKING (T) <span  class="badge bg-secondary rounded-pill">{{round ($item->average_score_t*100) }} %</span> </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center fw-bold">  FEELING (F) <span  class="badge bg-secondary rounded-pill">{{round ($item->average_score_f*100) }} %</span> </li>
+                        </ul>
+                        </div>
+                        <div class="mt-4">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center fw-bold">
+                            JUDGING (J) <span  class="badge bg-secondary rounded-pill">{{round ($item->average_score_j*100) }} %</span> </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center fw-bold">  PERCEIVING (P) <span  class="badge bg-secondary rounded-pill">{{round ($item->average_score_p*100) }} %</span> </li>
                         </ul>
                         </div>
                         <div class="mt-3">
-                        <li class="list-group-item list-group-item-info rounded-pill">Tipe Kepribadian: </li>
+                        <li class="list-group-item list-group-item-info rounded-pill">Tipe Kepribadian: {{($item->result_1)}}{{($item->result_2)}}{{($item->result_3)}}{{($item->result_4)}}</li>
                         </div>
                         <div class="mt-4">
                     </div>

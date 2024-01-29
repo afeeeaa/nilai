@@ -12,11 +12,11 @@
             @csrf
 
             <div class="grid gap-6">
-                <!-- Name -->
+                <!-- Nama -->
                 <div class="space-y-2">
                     <x-form.label
                         for="name"
-                        :value="__('Name')"
+                        :value="__('Nama')"
                     />
 
                     <x-form.input-with-icon-wrapper>
@@ -33,16 +33,16 @@
                             :value="old('name')"
                             required
                             autofocus
-                            placeholder="{{ __('Name') }}"
+                            placeholder="{{ __('Nama') }}"
                         />
                     </x-form.input-with-icon-wrapper>
                 </div>
 
-                <!-- Email Address -->
+                <!-- Nama Pengguna -->
                 <div class="space-y-2">
                     <x-form.label
                         for="username"
-                        :value="__('Username')"
+                        :value="__('Nama Pengguna')"
                     />
 
                     <x-form.input-with-icon-wrapper>
@@ -58,16 +58,16 @@
                             name="username"
                             :value="old('username')"
                             required
-                            placeholder="{{ __('Username') }}"
+                            placeholder="{{ __('Nama Pengguna') }}"
                         />
                     </x-form.input-with-icon-wrapper>
                 </div>
 
-                <!-- Password -->
+                <!-- Kata Sandi -->
                 <div class="space-y-2">
                     <x-form.label
                         for="password"
-                        :value="__('Password')"
+                        :value="__('Kata Sandi')"
                     />
 
                     <x-form.input-with-icon-wrapper>
@@ -83,16 +83,16 @@
                             name="password"
                             required
                             autocomplete="new-password"
-                            placeholder="{{ __('Password') }}"
+                            placeholder="{{ __('Kata Sandi') }}"
                         />
                     </x-form.input-with-icon-wrapper>
                 </div>
 
-                <!-- Confirm Password -->
+                <!-- Konfirmasi Kata Sandi -->
                 <div class="space-y-2">
                     <x-form.label
                         for="password_confirmation"
-                        :value="__('Confirm Password')"
+                        :value="__('Konfirmasi Kata Sandi')"
                     />
 
                     <x-form.input-with-icon-wrapper>
@@ -107,7 +107,7 @@
                             type="password"
                             name="password_confirmation"
                             required
-                            placeholder="{{ __('Confirm Password') }}"
+                            placeholder="{{ __('Konfirmasi Kata Sandi') }}"
                         />
                     </x-form.input-with-icon-wrapper>
                 </div>
@@ -116,14 +116,14 @@
                     <x-button class="justify-center w-full gap-2">
                         <x-heroicon-o-user-add class="w-6 h-6" aria-hidden="true" />
 
-                        <span>{{ __('Register') }}</span>
+                        <span>{{ __('Daftar') }}</span>
                     </x-button>
                 </div>
 
                 <p class="text-sm text-gray-600 dark:text-gray-400">
-                    {{ __('Already registered?') }}
+                    {{ __('Sudah mempunyai akun?') }}
                     <a href="{{ route('login') }}" class="text-blue-500 hover:underline">
-                        {{ __('Login') }}
+                        {{ __('Masuk') }}
                     </a>
                 </p>
             </div>

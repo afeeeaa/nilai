@@ -1,7 +1,7 @@
 <x-perfect-scrollbar
     as="nav"
     aria-label="main"
-    class="flex flex-col flex-1 gap-4 px-3"
+    class="flex flex-col flex-1 gap-4 px-2"
 >
 
     <x-sidebar.link

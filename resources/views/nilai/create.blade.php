@@ -17,6 +17,17 @@
         </h2>
     </x-slot>
 
+    @if($errors->any())
+    <div class="pt-3">
+            <ul>
+                @foreach ($errors->all() as $item)
+                    <li>{{ $item }}</li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+@endif
+
     <div class="space-y-6">
         <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg dark:bg-gray-800">
             <div class="max-w-xl">
@@ -90,7 +101,7 @@
 
         <div class="flex items-center gap-4">
     <x-button class="bg-blue-500 text-white hover:bg-blue-500">
-        {{ __('Save') }}
+        {{ __('Simpan') }}
         
     </x-button>
 </div>

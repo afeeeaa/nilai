@@ -1,7 +1,7 @@
 <section>
     <header>
         <h2 class="text-lg font-medium">
-            {{ __('Update Password') }}
+            {{ __('Ubah Kata Sandi') }}
         </h2>
     </header>
 
@@ -16,7 +16,7 @@
         <div class="space-y-2">
             <x-form.label
                 for="current_password"
-                :value="__('Current Password')"
+                :value="__('Kata Sandi Lama')"
             />
 
             <x-form.input
@@ -33,7 +33,7 @@
         <div class="space-y-2">
             <x-form.label
                 for="password"
-                :value="__('New Password')"
+                :value="__('Kata Sandi Baru')"
             />
 
             <x-form.input
@@ -50,7 +50,7 @@
         <div class="space-y-2">
             <x-form.label
                 for="password_confirmation"
-                :value="__('Confirm Password')"
+                :value="__('Ulang Kata Sandi Baru')"
             />
 
             <x-form.input
@@ -66,7 +66,7 @@
 
         <div class="flex items-center gap-4">
     <x-button class="bg-blue-500 text-white hover:bg-blue-500">
-        {{ __('Save') }}
+        {{ __('Simpan') }}
     </x-button>
 </div>
 
@@ -80,7 +80,7 @@
                     x-init="setTimeout(() => show = false, 2000)"
                     class="text-sm text-gray-600 dark:text-gray-400"
                 >
-                    {{ __('Saved.') }}
+                    {{ __('Berhasil disimpan') }}
                 </p>
             @endif
         </div>
