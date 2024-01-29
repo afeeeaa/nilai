@@ -1,6 +1,6 @@
 <x-guest-layout>
     <head>
-        <title>{{ isset($webTitle) ? $webTitle . ' - ' : '' }}Register</title>
+        <title>{{ isset($webTitle) ? $webTitle . ' - ' : '' }}Daftar</title>
         <link rel="icon" type="image/png" href="{{ asset('path/to/your/favicon.png') }}">
     </head>
     

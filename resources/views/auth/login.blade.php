@@ -1,6 +1,6 @@
 <x-guest-layout>
     <head>
-        <title>{{ isset($webTitle) ? $webTitle . ' - ' : '' }}Login</title>
+        <title>{{ isset($webTitle) ? $webTitle . ' - ' : '' }}Masuk</title>
     </head>
     <x-auth-card>
         <!-- Session Status -->

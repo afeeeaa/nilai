@@ -1,6 +1,6 @@
 <x-app-layout>
     <head>
-        <title>{{ isset($webTitle) ? $webTitle . ' - ' : '' }}Profile</title>
+        <title>{{ isset($webTitle) ? $webTitle . ' - ' : '' }}Profil</title>
         <link rel="icon" type="image/png" href="{{ asset('path/to/your/favicon.png') }}">
     </head>    
     <x-slot name="header">

@@ -17,7 +17,12 @@
         </h2>
     </x-slot>
 
-    @if($errors->any())
+
+    <div class="space-y-6">
+        <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg dark:bg-gray-800">
+            <div class="max-w-xl">
+            
+            @if($errors->any())
     <div class="pt-3">
             <ul>
                 @foreach ($errors->all() as $item)
@@ -27,11 +32,6 @@
         </div>
     </div>
 @endif
-
-    <div class="space-y-6">
-        <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg dark:bg-gray-800">
-            <div class="max-w-xl">
-
         <form
             method="post"
             action="{{ url('nilai') }}"

@@ -18,7 +18,7 @@
     @if(session()->has('success'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
   <strong>Sukses!</strong> Data berhasil ditambahkan
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">x</button>
 </div>
 @endif
 
@@ -28,13 +28,14 @@
                 <!-- FORM PENCARIAN -->
                 <div class="flex justify-between">
                 <div class="pb-3">
-                    <a href="nilai/create" class="inline-flex items-center transition-colors font-medium select-none disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-eval-2 px-4 py-2 text-base bg-purple-500 text-white hover:bg-purple-600 focus:ring-purple-500 rounded-md"> Tambah Data </a>
+                <a href="nilai/create" class="inline-flex items-center transition-colors font-medium select-none disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-eval-2 px-4 py-2 text-base bg-blue-400 text-white hover:bg-blue-500 focus:ring-blue-400 rounded-md">
+                 Tambah Data </a>
                 </div>
 
     <div class="pb-2">
         <form class="form-inline" action="" method="get">
             <div class="input-group">
-                <input class="form-control me-1 border-gray-400 rounded focus:border-gray-400 focus:ring focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-white dark:border-gray-600 dark:bg-dark-eval-1 dark:text-gray-300 dark:focus:ring-offset-dark-eval-1 block w-full" 
+                <input class="form-control me-1 border-gray-400 rounded focus:border-gray-400 dark:border-gray-600 dark:bg-dark-eval-1 dark:text-gray-300 dark:focus:ring-offset-dark-eval-1 block w-full" 
                     type="search" 
                     name="keyword" 
                     value="{{ Request::get('keyword') }}" 
@@ -89,14 +90,15 @@
             <td>{{ $item->nama }}</td>
             <td class="text-center">
                 <a href="{{ url('/download/' . $item->id) }}"><i class="bi bi-download"></i></a>
-                <button type="button" class="inline-flex items-center transition-colors font-medium select-none disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-eval-2 px-4 py-2 text-base bg-blue-500 text-white hover:bg-blue-600 focus:ring-blue-500 rounded-md">
+                <button type="button" class="inline-flex items-center transition-colors font-medium select-none disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-eval-2 px-4 py-2 text-base bg-green-500 text-white hover:bg-green-600 focus:ring-green-500 rounded-md">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
                 <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"></path>
                 <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"></path>
                 </svg>
               </button>
             </td>
-            <td class="text-center"><button type="button" class="inline-flex items-center transition-colors font-medium select-none disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-eval-2 px-4 py-2 text-base bg-blue-500 text-white hover:bg-blue-600 focus:ring-blue-500 rounded-md" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $item->id }}">
+            <td class="text-center">
+                <button type="button" class="inline-flex items-center transition-colors font-medium select-none disabled:opacity-50 disabled:cursor-not-allowed dark:focus:ring-offset-dark-eval-2 px-4 py-2 text-base bg-white-400 text-black-700 rounded-md" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $item->id }}">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
             <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"></path>
             <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"></path>
@@ -144,12 +146,12 @@
                         </ul>
                         </div>
                         <div class="mt-3">
-                        <li class="list-group-item list-group-item-info rounded-pill">Tipe Kepribadian: {{($item->result_1)}}{{($item->result_2)}}{{($item->result_3)}}{{($item->result_4)}}</li>
+                        <li class="list-group-item list-group-item-secondary rounded-pill">Tipe Kepribadian: <strong>{{($item->result_1)}}{{($item->result_2)}}{{($item->result_3)}}{{($item->result_4)}}</strong></li>
                         </div>
                         <div class="mt-4">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="inline-flex items-center transition-colors font-medium select-none disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-eval-2 px-4 py-2 text-base bg-blue-500 text-white hover:bg-blue-600 focus:ring-blue-500 rounded-md" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="inline-flex items-center transition-colors font-medium select-none disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-eval-2 px-4 py-2 text-base bg-red-600 text-white hover:bg-red-700 focus:ring-red-600 rounded-md" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
