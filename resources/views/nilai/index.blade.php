@@ -18,7 +18,8 @@
     @if(session()->has('success'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
   <strong>Sukses!</strong> Data berhasil ditambahkan
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">x</button>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="bi bi-x"></i>
+</button>
 </div>
 @endif
 

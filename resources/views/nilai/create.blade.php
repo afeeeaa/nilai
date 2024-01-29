@@ -100,7 +100,7 @@
                             </div>
 
         <div class="flex items-center gap-4">
-    <x-button class="bg-blue-500 text-white hover:bg-blue-500">
+    <x-button>
         {{ __('Simpan') }}
         
     </x-button>

@@ -65,11 +65,9 @@
         </div>
 
         <div class="flex items-center gap-4">
-    <x-button class="bg-blue-500 text-white hover:bg-blue-500">
+    <x-button>
         {{ __('Simpan') }}
     </x-button>
-</div>
-
 
 
             @if (session('status') === 'password-updated')
@@ -77,7 +75,6 @@
                     x-data="{ show: true }"
                     x-show="show"
                     x-transition
-                    x-init="setTimeout(() => show = false, 2000)"
                     class="text-sm text-gray-600 dark:text-gray-400"
                 >
                     {{ __('Berhasil disimpan') }}
