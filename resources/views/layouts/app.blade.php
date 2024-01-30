@@ -20,8 +20,6 @@
         [x-cloak] {
             display: none;
         }
-        body {
-            font-family: 'Poppins', sans-serif;}
     </style>
 
     <!-- Scripts -->

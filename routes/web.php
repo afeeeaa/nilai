@@ -37,6 +37,8 @@ Route::get('/nilai/search', [NilaiController::class, 'search']);
 
 Route::get('download/{id}', [NilaiController::class, 'download']);
 
+Route::get('generate/{id}', [NilaiController::class, 'generate']);
+
 // useless routes
 // Just to demo sidebar dropdown links active states.
 Route::get('/buttons/text', function () {

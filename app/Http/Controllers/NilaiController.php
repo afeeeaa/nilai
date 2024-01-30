@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Nilai;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -141,7 +142,7 @@ class NilaiController extends Controller
             'original_filename' => $originalFileName,
 
             // menyimpan hasil mbti di atas
-            ...$mbti // NOTE: searching aja kalau bingung ini apaan
+            ...$mbti
         ];
 
         Nilai::create($data);
@@ -186,6 +187,11 @@ class NilaiController extends Controller
         return response()->download($filepath, $data->original_filename);
     }
 
+    public function generate($id){
+        $data=DB::table('nilai')->where('id', $id)->first();
+        $pdf=PDF::loadview("nilai/printpdf",['Hasil MBTI_' . $data->nama => $data]); 
+        return $pdf->download('Hasil MBTI_' . $data->nama . '.pdf');
+    }
 
     /**
      * Display the specified resource.

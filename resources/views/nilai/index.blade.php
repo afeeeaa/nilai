@@ -82,8 +82,8 @@
         </a>
     </th>
 
-<th class="col-md-2 text-center">Lembar Jawab</th>
-        <th class="col-md-3 text-center">Hasil Kuis</th>
+    <th class="col-md-2 text-center">Lembar Jawab</th>
+    <th class="col-md-2 text-center">Hasil Kuis</th>
     </tr>
 </thead>
 <tbody>
@@ -122,9 +122,21 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p> No. Registrasi: {{ $item->no_reg }} </p>
-                        <p> Email: {{ $item->email }} </p>
-                        <p> Nama: {{ $item->nama }} </p>
+                        <ul class="list-inline">
+                            <li class="list-inline-item col-sm-3"><strong>No. Registrasi</strong></li>
+                            <li class="list-inline-item"><strong>:</strong></li>
+                            <li class="list-inline-item">{{ $item->no_reg }}</li>
+                        </ul>
+                        <ul class="list-inline">
+                            <li class="list-inline-item col-sm-3"><strong>Email</strong></li>
+                            <li class="list-inline-item"><strong>:</strong></li>
+                            <li class="list-inline-item">{{ $item->email }}</li>
+                        </ul>
+                        <ul class="list-inline">
+                            <li class="list-inline-item col-sm-3"><strong>Nama</strong></li>
+                            <li class="list-inline-item"><strong>:</strong></li>
+                            <li class="list-inline-item">{{ $item->nama }}</li>
+                        </ul>
                         <div class="mt-4">
                         <ul class="list-group">
                             <li class="list-group-item d-flex justify-content-between align-items-center fw-bold">
@@ -158,6 +170,7 @@
                         <div class="mt-4">
                     </div>
                     <div class="modal-footer">
+                        <a href="{{ url('/generate/' . $item->id) }}" class="btn btn-danger">Download pdf</a>
                     <button type="button" class="inline-flex items-center transition-colors font-medium select-none disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-eval-2 px-4 py-2 text-base bg-red-600 text-white hover:bg-red-700 focus:ring-red-600 rounded-md" data-bs-dismiss="modal">Tutup</button>
                     </div>
                 </div>
