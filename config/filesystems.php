@@ -46,8 +46,8 @@ return [
 
         'dokumen' => [
             'driver' => 'local',
-            'root' => storage_path('app/nilai/dokumen'),
-            'url' => env('APP_URL').'/storage',
+            'root' => storage_path('app/upload'),
+            'url' => env('APP_URL').'/storage/app/upload',
             'visibility' => 'public',
         ],
 
