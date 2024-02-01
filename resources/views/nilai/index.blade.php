@@ -119,7 +119,6 @@
                 <div class="modal-content">
                     <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel"><b>Hasil Kuis</b></h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <ul class="list-inline">
@@ -169,9 +168,18 @@
                         </div>
                         <div class="mt-4">
                     </div>
+
                     <div class="modal-footer">
-                        <a href="{{ url('/generate/' . $item->id) }}" class="btn btn-danger">Download pdf</a>
-                    <button type="button" class="inline-flex items-center transition-colors font-medium select-none disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-eval-2 px-4 py-2 text-base bg-red-600 text-white hover:bg-red-700 focus:ring-red-600 rounded-md" data-bs-dismiss="modal">Tutup</button>
+                    <a href="{{ url('/generate/' . $item->id) }}" class="inline-flex items-center transition-colors font-medium select-none disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-eval-2 px-4 py-2 text-base bg-green-500 text-white hover:bg-green-600 focus:ring-green-600 rounded-md">
+                    <button type="button" class="inline-flex items-center focus:outline-none">
+                        <span class="mr-1">Unduh PDF</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-arrow-down-fill" viewBox="0 0 16 16">
+                    <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1m-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0"></path>
+                    </svg>
+                    </button>
+                    </a>                    
+                    
+                    <button type="button" class="inline-flex items-center transition-colors font-medium select-none disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-eval-2 px-4 py-2 text-base bg-red-500 text-white hover:bg-red-600 focus:ring-red-600 rounded-md" data-bs-dismiss="modal">Tutup</button>
                     </div>
                 </div>
             </div>
