@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
 use App\Import\AnswerSheet;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Validator;
 
 class NilaiController extends Controller
 {
@@ -54,24 +55,26 @@ class NilaiController extends Controller
      */
     public function store(Request $request)
     {
-        Session::flash('no_reg',$request->no_reg);
-        Session::flash('email',$request->email);
-        Session::flash('nama',$request->nama);
+        Session::flash('no_reg', $request->no_reg);
+        Session::flash('email', $request->email);
+        Session::flash('nama', $request->nama);
 
-        $request->validate([
-            'no_reg' => 'required|unique:nilai,no_reg',
-            'email' => 'required',
-            'nama' => 'required',
-            'dokumen' => 'required|mimes: csv,xls,xlsx',
-        ],
-        [
-            'no_reg.required'=>'Nomor registrasi harus diisi',
-            'no_reg.unique'=>'Nomor registrasi sudah ada',
-            'email.required'=>'Email harus diisi',
-            'nama.required'=>'Nama harus diisi',
-            'dokumen.required'=>'Lembar jawab harus diisi',
-            'dokumen.mimes'=>'Format file xls',
-        ]);
+        $request->validate(
+            [
+                'no_reg' => 'required|unique:nilai,no_reg',
+                'email' => 'required',
+                'nama' => 'required',
+                'dokumen' => 'required|mimes: csv,xls,xlsx',
+            ],
+            [
+                'no_reg.required' => 'Nomor registrasi harus diisi',
+                'no_reg.unique' => 'Nomor registrasi sudah ada',
+                'email.required' => 'Email harus diisi',
+                'nama.required' => 'Nama harus diisi',
+                'dokumen.required' => 'Lembar jawab harus diisi',
+                'dokumen.mimes' => 'Format file xls',
+            ]
+        );
 
         $file = $request->file('dokumen');
         if (!$file || ($file && !$file->isValid())) {
@@ -81,6 +84,14 @@ class NilaiController extends Controller
         // baca data dari excel dan kalkulasi
         $collection = Excel::toCollection(new AnswerSheet, $file);
         $data = $collection->first();
+
+        Validator::validate($data->toArray(), [
+            "0.score" => ["required", "numeric"]
+        ], [
+            "0.score.required" => "Format excel tidak valid",
+            "0.score.numeric" => "Kolom score harus bernilai angka semua"
+        ]);
+
         // pecah per-15 untuk setiap kategori
         $categoriesWithAnswers = $data->chunk(15);
 
@@ -200,9 +211,10 @@ class NilaiController extends Controller
         return response()->download($filepath, $data->original_filename);
     }
 
-    public function generate($id){
-        $data=DB::table('nilai')->where('id', $id)->first();
-        $pdf=PDF::loadview("nilai/printpdf",['data' => $data]);
+    public function generate($id)
+    {
+        $data = DB::table('nilai')->where('id', $id)->first();
+        $pdf = PDF::loadview("nilai/printpdf", ['data' => $data]);
         return $pdf->download('Hasil MBTI_' . $data->nama . '.pdf');
     }
 
